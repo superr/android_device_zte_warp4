@@ -1,0 +1,2 @@
+add_lunch_combo cm_warp4-userdebug
+add_lunch_combo cm_warp4-eng
