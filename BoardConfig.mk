@@ -21,11 +21,15 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8926
 TARGET_NO_BOOTLOADER := true
 
 # kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
-BOARD_MKBOOTIMG_ARGS := --dt $(LOCAL_PATH)/dt.img
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_SOURCE := kernel/zte/warp4
+TARGET_KERNEL_CONFIG := warp4_defconfig
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+#BOARD_MKBOOTIMG_ARGS := --dt $(LOCAL_PATH)/dt.img
 
 # partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -53,6 +57,7 @@ BOARD_RECOVERY_SWIPE := true
 DEVICE_RESOLUTION := 720x1280
 TW_IGNORE_MAJOR_AXIS_0 := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_DEFAULT_EXTERNAL_STORAGE := true
 # TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/ramdisk/init.rc
 
 BOARD_HAS_NO_SELECT_BUTTON := true
