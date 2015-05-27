@@ -1,7 +1,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/zte/warp4/BoardConfigVendor.mk
+# -include vendor/zte/warp4/BoardConfigVendor.mk
 
 LOCAL_PATH := device/zte/warp4
 
@@ -51,7 +51,7 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_RECOVERY_SWIPE := true
+# BOARD_RECOVERY_SWIPE := true
 
 # TWRP
 DEVICE_RESOLUTION := 720x1280
